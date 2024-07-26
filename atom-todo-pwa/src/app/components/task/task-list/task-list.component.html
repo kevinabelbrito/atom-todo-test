@@ -1,0 +1,20 @@
+<mat-grid-list cols="3" gutterSize="20px" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let task of tasks">
+    <mat-card class="task-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title class="task-card-title">{{ task?.title }}</mat-card-title>
+        <mat-card-subtitle>Creado: {{ formatDate(task.createdAt) }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="task-card-description">
+        <p>{{ task?.description }}</p>
+      </mat-card-content>
+      <mat-card-footer class="example-card-footer">
+        <button mat-raised-button (click)="openEditDialog(task)">Editar</button>
+        <button mat-raised-button (click)="openConfirmationDialog(task.id)">Eliminar</button>
+        <mat-checkbox [checked]="task?.status == 'completed'" (change)="toggleTaskStatus(task)">
+          {{ task?.status }}
+        </mat-checkbox>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

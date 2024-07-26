@@ -1,0 +1,12 @@
+<mat-grid-list cols="3" gutterSize="20px" rowHeight="2:1">
+  <mat-grid-tile>
+    <button mat-raised-button (click)="logout()">Volver al Inicio</button>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-task-form (taskAdded)="onTaskAdded()"></app-task-form>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+<div class="container">
+  <app-task-list [tasks]="tasks"></app-task-list>
+</div>
